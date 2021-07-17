@@ -1,6 +1,7 @@
 body {
   position: relative;
   height: 100vh;
+  transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.3s;
 }
 
 nav {
@@ -13,7 +14,12 @@ nav a {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-
+.night-mood {
+  background-color: #252525;
+}
+#mood {
+  font-size: 20px;
+}
 nav a:hover {
   color: #dfdfdf;
 }
@@ -22,7 +28,7 @@ nav a:hover {
   margin: 40px auto;
   max-width: 600px;
 }
-.weather-row{
+.weather-row {
   max-width: 600px;
   margin: auto;
   margin-bottom: 50px;
@@ -34,41 +40,52 @@ nav a:hover {
   margin: 10px 0;
   color: #fff;
   border-radius: 10px;
-  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
-          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
-.weather-cart .del-icon{
+.weather-cart .del-icon {
   float: right;
   font-size: 16px;
   color: #bfbdbd;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+  padding: 5px;
 }
-.weather-cart .tempa{
-    font-size: 30px;
-    margin-top: 30px;
+.weather-cart .del-icon:hover {
+  transform: rotate(90deg);
 }
-.weather-cart .det-text{
-    text-transform: capitalize;
-    margin: 0;
+.weather-cart .tempa {
+  font-size: 30px;
+  margin-top: 30px;
+}
+.weather-cart .det-text {
+  text-transform: capitalize;
+  margin: 0;
 }
 .weather-cart .loc {
-    font-size: 18px;
+  font-size: 18px;
 }
-.no-city{
-    text-align: center;
+.no-city {
+  text-align: center;
 }
-button{
-    background: #0576e6 !important;
+button {
+  background: #0576e6 !important;
 }
 .weather-cart .time {
-    margin-bottom: 0;
-    font-size: 13px;
+  margin-bottom: 0;
+  font-size: 13px;
 }
 .weather-cart .icon {
   font-size: 30px;
 }
 
 footer {
-  background: #0b2136;+
+  background: #0b2136;
   width: 100%;
   color: #fff;
   padding: 40px 0;

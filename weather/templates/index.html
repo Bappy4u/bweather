@@ -18,7 +18,7 @@
     />
     <link rel="stylesheet" href="{% static 'style.css' %}" />
   </head>
-  <body>
+  <body id="body">
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="container-fluid">
@@ -26,6 +26,11 @@
             <a class="navbar-brand" href="/"
               ><i class="bi bi-cloud-sun"></i> Bweather</a
             >
+          </div>
+          <div class="navbar-right">
+            <a href="#" id="mood"
+              ><i id="mood-icon" class="bi bi-moon-fill"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -118,9 +123,19 @@
     <footer>
       <div class="footer-text">
         <p>
-          Made with <i class="love bi bi-heart-fill"></i> by Najmul H. Bappy
+          Made with <i class="love bi bi-heart-fill"></i> by
+          <a href="https://nbappy.me/" style="color: #ffbff7"
+            >Najmul H. Bappy</a
+          >
         </p>
       </div>
     </footer>
+    <script>
+      document.getElementById("mood").addEventListener("click", function () {
+        document.getElementById("body").classList.toggle("night-mood");
+        document.getElementById("mood-icon").classList.toggle("bi-moon-fill");
+        document.getElementById("mood-icon").classList.toggle("bi-sun-fill");
+      });
+    </script>
   </body>
 </html>

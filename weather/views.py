@@ -10,20 +10,24 @@ def index(request):
     error_message = ""
     status = 0
     if request.method == 'POST':
-        form = CityForm(request.POST)
-
-        if form.is_valid():
-            new_city = form.cleaned_data['name']
-            is_city_exist = City.objects.filter(name=new_city).count()
-            r = requests.get(url.format(new_city)).json()
-        if not is_city_exist and r['cod'] == 200:
-            form.save()
-            error_message = 'Successfully Added the city in the list!'
-            status = 1
-        elif is_city_exist:
-            error_message = "The city is already in the List!"
+        city_count = City.objects.all().count()
+        print(city_count)
+        if city_count < 6:
+            form = CityForm(request.POST)
+            if form.is_valid():
+                new_city = form.cleaned_data['name']
+                is_city_exist = City.objects.filter(name=new_city).count()
+                r = requests.get(url.format(new_city)).json()
+            if not is_city_exist and r['cod'] == 200:
+                form.save()
+                error_message = 'Successfully Added the city in the list!'
+                status = 1
+            elif is_city_exist:
+                error_message = "The city is already in the List!"
+            else:
+                error_message = "There is not city in the world called " + new_city
         else:
-            error_message = "There is not city in the world called " + new_city
+            error_message = "You can not add more than 6 cities in that list. Please try after removing one of the cities below."
 
     form = CityForm()
 
